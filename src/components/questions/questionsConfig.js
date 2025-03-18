@@ -13,5 +13,5 @@ export const questions = [
     placeholder: 'Enter another value',
     validation: value => value.trim() !== ''
   },
-  // Add more questions here
+  // Add more questions here as needed
 ];

@@ -1,36 +1,10 @@
 import './questions.css';
 import { Carousel, Form, Button } from 'react-bootstrap';
-import { questions } from './questions.js';
 import React from 'react';
-
-// Step configuration array
-const QUESTION_STEPS = [
-  {
-    step: 1,
-    name: 'step1Input',
-    label: 'Step 1: Input your first value',
-    placeholder: 'Enter a value',
-    validation: value => value.trim() !== '' // Example validation
-  },
-  {
-    step: 2,
-    name: 'step2Input',
-    label: 'Step 2: Input your second value',
-    placeholder: 'Enter another value',
-    validation: value => value.trim() !== ''
-  },
-  // Add new questions here:
-  {
-    step: 3,
-    name: 'step3Input',
-    label: 'Step 3: Input your third value',
-    placeholder: 'Enter third value',
-    validation: value => value.trim() !== ''
-  }
-];
+import { questions } from './questionsConfig'; // Correct import
 
 export default function Questions({ activeIndex, setActiveIndex, formData, setFormData }) {
-  const totalSteps = QUESTION_STEPS.length;
+  const totalSteps = questions.length; // Changed to use 'questions'
 
   const handleSelect = (selectedIndex) => setActiveIndex(selectedIndex);
   
@@ -39,9 +13,13 @@ export default function Questions({ activeIndex, setActiveIndex, formData, setFo
   };
 
   const goToNext = () => {
-    const currentStep = QUESTION_STEPS[activeIndex];
-    if (currentStep.validation(formData[currentStep.name])) {
-      setActiveIndex(Math.min(activeIndex + 1, totalSteps - 1));
+    try {
+      const currentStep = questions[activeIndex]; // Changed to 'questions'
+      if (currentStep.validation(formData[currentStep.name])) {
+        setActiveIndex(Math.min(activeIndex + 1, totalSteps - 1));
+      }
+    } catch (error) {
+      console.log(error.msg)
     }
   };
 
@@ -52,7 +30,7 @@ export default function Questions({ activeIndex, setActiveIndex, formData, setFo
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Submitting:', formData);
-    // Add your submission logic here
+    // Add submission logic
   };
 
   return (
@@ -63,7 +41,7 @@ export default function Questions({ activeIndex, setActiveIndex, formData, setFo
       indicators={false}
       interval={null}
     >
-      {QUESTION_STEPS.map((stepConfig, index) => (
+      {questions.map((stepConfig) => ( // Changed to 'questions'
         <Carousel.Item key={stepConfig.step}>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId={`formStep${stepConfig.step}`}>

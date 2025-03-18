@@ -7,19 +7,18 @@ import { BarChart } from '../barchart/barchart';
 import Chart from "chart.js/auto";
 import { OtherUsersData } from '../../utils/otherData';
 import Questions from '../questions/questions';
-import { Button } from 'react-bootstrap'; // Add this import
+import { Button } from 'react-bootstrap';
 
 export default function Calculator() {
   const [activeGraph, setActiveGraph] = useState('myGraph');
   const [activeIndex, setActiveIndex] = useState(0);
   const [formData, setFormData] = useState({
-  step1Input: '',
-  step2Input: '',
-  step3Input: '',
-  // Add new fields here matching QUESTION_STEPS names
-});
+    step1Input: '',
+    step2Input: ''
+    // Add more fields here when adding new questions
+  });
 
-  // Chart data configurations
+  // Keep the chart configurations as they were
   const myChartData = {
     labels: Data.map((data) => data.year),
     datasets: [
@@ -69,7 +68,6 @@ export default function Calculator() {
           formData={formData}
           setFormData={setFormData}
         />
-
       </div>
 
       <div className="graph">

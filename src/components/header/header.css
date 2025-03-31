@@ -36,8 +36,12 @@
   font-size: 18px;
 }
 
-/* Optional: Hover effect for better UX */
+
 .nav-menu ul li a:hover {
+  text-decoration: none;
+}
+
+.nav-menu ul li button:hover {
   text-decoration: none;
 }
 

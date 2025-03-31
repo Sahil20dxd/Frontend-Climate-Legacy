@@ -74,22 +74,8 @@ export default function Calculator() {
         <BarChart chartData={activeGraph === 'myGraph' ? myChartData : otherUsersChartData} />
         
         <div className="graphButtons">
-          <Button 
-            variant="primary"
-            type="button"
-            onClick={() => setActiveGraph('myGraph')}
-            className={activeGraph === 'myGraph' ? 'active' : ''}
-          >
-            My Graph
-          </Button>
-          <Button 
-            variant="primary" 
-            type="button"
-            onClick={() => setActiveGraph('otherUsers')}
-            className={activeGraph === 'otherUsers' ? 'active' : ''}
-          >
-            Other Users
-          </Button>
+          
+          
         </div>
       </div>
     </div>

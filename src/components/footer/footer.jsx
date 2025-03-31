@@ -12,8 +12,7 @@ export default function Footer(){
                 </div>
                 <div class="footer-right" id="contact">
                 <h4>Contact Us</h4>
-                <p>Email: test@climatelegacy.com</p>
-                <p>Phone: +1 (555) 555-5555</p>
+                <p>Email: heather@climate-legacy.com</p>
                 </div>
                 <div class="footer-bottom">
                 <p>&copy; 2025 Climate Legacy. All rights reserved.</p>
